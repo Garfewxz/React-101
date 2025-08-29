@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// src/App.tsx
+import { useState } from "react";
 
 interface Subject {
   id: number;
@@ -62,7 +63,6 @@ export default function SubjectGradeManager() {
     <div style={{ padding: "20px" }}>
       <h2>ระบบจัดการเกรดนักเรียน</h2>
 
-      {/* Input */}
       <div style={{ marginBottom: "15px" }}>
         <input
           type="text"
@@ -85,7 +85,6 @@ export default function SubjectGradeManager() {
         <button onClick={addSubject}>เพิ่มรายวิชา</button>
       </div>
 
-      {/* ตารางรายวิชา */}
       <table border={1} cellPadding={10} style={{ borderCollapse: "collapse" }}>
         <thead>
           <tr>
@@ -97,12 +96,8 @@ export default function SubjectGradeManager() {
         <tbody>
           {subjects.map((s) => (
             <tr key={s.id}>
-              <td style={{ color: s.grade === "F" ? "red" : "black" }}>
-                {s.name}
-              </td>
-              <td style={{ color: s.grade === "F" ? "red" : "black" }}>
-                {s.grade}
-              </td>
+              <td style={{ color: s.grade === "F" ? "red" : "black" }}>{s.name}</td>
+              <td style={{ color: s.grade === "F" ? "red" : "black" }}>{s.grade}</td>
               <td>
                 <button onClick={() => removeSubject(s.id)}>ลบ</button>
               </td>
@@ -111,15 +106,11 @@ export default function SubjectGradeManager() {
         </tbody>
       </table>
 
-      {/* ปุ่มคำนวณ GPA */}
       <div style={{ marginTop: "15px" }}>
         <button onClick={calculateGPA}>คำนวณ GPA</button>
       </div>
 
-      {/* แสดงผล GPA */}
-      {gpa !== null && (
-        <h3 style={{ marginTop: "10px" }}>GPA: {gpa.toFixed(2)}</h3>
-      )}
+      {gpa !== null && <h3 style={{ marginTop: "10px" }}>GPA: {gpa.toFixed(2)}</h3>}
     </div>
   );
 }
