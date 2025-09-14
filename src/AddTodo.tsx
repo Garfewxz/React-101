@@ -1,3 +1,5 @@
+import AddBox from './Component/AddBox'
+import Toolkit from './Component/Toolkit'
 import { useState } from 'react'
 import { useTodoStore } from '../store/todoStore'
 
@@ -8,7 +10,7 @@ const AddTodo = () => {
   const handleAdd = () => {
     if (text.trim()) {
       addTodo(text)
-      setText('')
+      setText('')ช
     }
   }
 
